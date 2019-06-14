@@ -66,21 +66,12 @@ void Dijkstratabelle::dijkstra(int start_knoten) {
     int aktueller_knoten = start_knoten;
     int aktuelle_distanz = 0;
     while (besuchte_knoten.size() < knoten_.size() && aktueller_knoten != -1) {
-
         besuchte_knoten.push_back(aktueller_knoten);
         aktuelle_distanz = gesamtdistanz_.at(aktueller_knoten);
-
-        // Distanz zu unbesuchten Nachbarn berechnen
         std::vector<std::vector<int>> nachbardistanzen = get_nachbarn_mit_distanzen(aktueller_knoten, aktuelle_distanz,
                                                                                     besuchte_knoten,
                                                                                     erreichbare_knoten);
-
-
-        // Gesamtdistanzen bei Bedarf updaten
         distanzen_und_vorgaenger_updaten(nachbardistanzen, aktueller_knoten);
-
-
-        // Neuen Knoten zum Besuchen auswählen
         aktueller_knoten = neuen_knoten_auswaehlen(besuchte_knoten, erreichbare_knoten);
 
     }
@@ -92,17 +83,11 @@ Dijkstratabelle::get_nachbarn_mit_distanzen(int aktueller_knoten, int aktuelle_d
                                             std::vector<int> &erreichbare_knoten) {
     std::vector<std::vector<int>> result;
     for (int nachbar : knoten_) {
-        if (nachbar == aktueller_knoten) {
-            continue;
-        }
-        if (std::find(besuchte_knoten.begin(), besuchte_knoten.end(), nachbar) != besuchte_knoten.end()) {
-            continue;
-        }
-        if (!graph_.hat_verbindung(aktueller_knoten, nachbar)) {
-            continue;
-        }
-        result.push_back({nachbar, aktuelle_distanz + graph_.get_kantengewicht(aktueller_knoten, nachbar)});
-        if (!(std::find(erreichbare_knoten.begin(), erreichbare_knoten.end(), nachbar) != erreichbare_knoten.end())) {
+        // Nachbar darf noch nicht besucht worden sein
+        // Nachbar muss Verbindung zum aktuellen Knoten haben
+        if ((!(std::find(besuchte_knoten.begin(), besuchte_knoten.end(), nachbar) != besuchte_knoten.end())) &&
+            (graph_.hat_verbindung(aktueller_knoten, nachbar))) {
+            result.push_back({nachbar, aktuelle_distanz + graph_.get_kantengewicht(aktueller_knoten, nachbar)});
             erreichbare_knoten.push_back(nachbar);
         }
     }
