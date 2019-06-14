@@ -1,0 +1,16 @@
+graph {
+  v0 -- v1 [label=3, weight=3]
+  v0 -- v2 [label=5, weight=5]
+  v0 -- v3 [label=1, weight=1]
+  v1 -- v4 [label=1, weight=1]
+  v2 -- v5 [label=4, weight=4]
+  v2 -- v9 [label=3, weight=3]
+  v3 -- v5 [label=2, weight=2]
+  v4 -- v6 [label=1, weight=1]
+  v5 -- v7 [label=1, weight=1]
+  v5 -- v9 [label=3, weight=3]
+  v6 -- v8 [label=2, weight=2]
+  v6 -- v9 [label=4, weight=4]
+  v7 -- v9 [label=3, weight=3]
+  v8 -- v9 [label=3, weight=3]
+}

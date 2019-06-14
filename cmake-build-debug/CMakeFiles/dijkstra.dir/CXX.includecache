@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jen/Desktop/FH/SS 19/Info2/CLionProjects FH/Poodle/8_Graphen/dijkstra/Dijkstratabelle.cpp
+utility
+-
+iostream
+-
+iomanip
+-
+Dijkstratabelle.h
+/Users/jen/Desktop/FH/SS 19/Info2/CLionProjects FH/Poodle/8_Graphen/dijkstra/Dijkstratabelle.h
+
+/Users/jen/Desktop/FH/SS 19/Info2/CLionProjects FH/Poodle/8_Graphen/dijkstra/Dijkstratabelle.h
+vector
+-
+Graph.h
+/Users/jen/Desktop/FH/SS 19/Info2/CLionProjects FH/Poodle/8_Graphen/dijkstra/Graph.h
+
+/Users/jen/Desktop/FH/SS 19/Info2/CLionProjects FH/Poodle/8_Graphen/dijkstra/Graph.h
+vector
+-
+
